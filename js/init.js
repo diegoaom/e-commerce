@@ -39,3 +39,20 @@ let getJSONData = function(url){
         return result;
     });
 }
+
+function authentication() {
+  if (localStorage.getItem("email") === null){
+    window.location.href = "login.html"
+  }
+}
+
+function displayUser() {
+  if (localStorage.getItem("email") !== null){
+    let display = document.createTextNode(localStorage.getItem("email"));
+    userDisplay.appendChild(display);
+  }
+}
+
+displayUser();
+authentication();
+ 

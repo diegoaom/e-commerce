@@ -188,3 +188,43 @@ a.custom-card:hover {
 .checked {
   color: orange;
 }
+
+.custom-container {
+  margin: 3em 0;
+}
+
+.custom-card {
+  margin: 1em 0;
+}
+
+.alert-text {
+  text-align: center;
+}
+
+.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.inicio-sesion {
+  text-align: center;
+  font-weight: 500;
+}
+
+.button-inicio {
+  width: auto;
+  margin-top: 1.8rem;
+  margin-bottom: 2rem;
+}
+
+.input-login {
+  text-align: center;
+  font-weight: 500;
+}
+
+.image-container {
+  max-width: 505px;
+  margin: 0 auto;
+}

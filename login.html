@@ -19,8 +19,33 @@
 <body>
   <main class="mt-5">
     <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
+      <main>
+        <div class="row mt-4">
+          <div class="col">
+            <div class="row g-3 image-container">
+              <img src="../img/login.png" alt="">
+            </div>
+            <h1 class="mb-3 inicio-sesion">Inicio de sesión</h1>
+            <div class="row g-3 login">
+  
+              <div class="col-sm-4 input-login">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="user" placeholder="Email">
+              </div>
+  
+              <div class="col-sm-4 input-login">
+                <label for="password1" class="form-label">Contraseña</label>
+                <input type="password" class="form-control" id="password" placeholder="Contraseña">
+              </div>
+  
+              <button class="btn btn-primary button-inicio" type="button" id="logBtn">Ingresar</button>
+  
+  
+            </div>
+          </div>
+        </div>
+  
+      </main>
       </div>
     </div>
   </main>
@@ -34,7 +59,15 @@
       <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
     </div>
   </footer>
+
+  <div class="alert alert-danger alert-dismissible fade" role="alert" id="alertEmpty">
+    <p class="alert-text">Ninguno de los campos puede estar vacio.</p>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+
   <script src="js/login.js"></script>
+
+  
 </body>
 
 </html>

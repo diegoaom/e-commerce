@@ -16,7 +16,7 @@ function showProducts(array){
                 <div class="col">
                     <div class="d-flex w-100 justify-content-between">
                         <div class="mb-1">
-                        <h4>`+ element.name +`</h4> 
+                        <h4>`+ element.name + " - " + element.currency + " $" + element.cost + `</h4>
                         <p> `+ element.description +`</p> 
                         </div>
                         <small class="text-muted">` + element.soldCount + ` artículos vendidos</small> 

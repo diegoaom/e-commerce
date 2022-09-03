@@ -1,3 +1,6 @@
+const alertEmpty = document.querySelector("#alertEmpty");
+const logBtn = document.querySelector("#logBtn");
+
 
 function logIn () {
 

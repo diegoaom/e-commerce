@@ -1,6 +1,5 @@
 
-const CATEGORIES = `${PRODUCTS_URL}${localStorage.getItem("catID")}${EXT_TYPE}`
-
+const CATEGORIES = `${PRODUCTS_URL}${localStorage.getItem("catID")}${EXT_TYPE}`;
 
 
 function showProducts(array){
@@ -26,14 +25,20 @@ function showProducts(array){
             </div>
         </div>
         `
-        document.getElementById("container").innerHTML = htmlContentToAppend; 
+        document.querySelector("#container").innerHTML = htmlContentToAppend; 
     }
+}
+
+function displayCurrentCategory(array){
+    document.querySelector("#productCategory").innerText = array.catName;
+    document.querySelector("#productCategory2").innerText = array.catName.toLowerCase();
 }
 
 async function getData() {
     let response = await fetch (CATEGORIES);
     let result = await response.json();
     showProducts(result.products);
+    displayCurrentCategory(result);
 }
 
 getData();

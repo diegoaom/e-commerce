@@ -228,3 +228,8 @@ a.custom-card:hover {
   max-width: 505px;
   margin: 0 auto;
 }
+
+.google-button {
+  width: auto;
+  font-size: 0.8rem;
+}

@@ -55,6 +55,10 @@ function displayUser() {
   }
 }
 
-displayUser();
-authentication();
- 
+document.addEventListener("DOMContentLoaded", () =>{
+  
+  // authentication();
+  
+  displayUser();
+
+});

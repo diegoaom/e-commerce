@@ -54,6 +54,12 @@ function displayUser() {
   }
 }
 
+function logOut() {
+  if (localStorage.getItem("email") !== null){
+    localStorage.removeItem("email");
+  }
+}
+
 document.addEventListener("DOMContentLoaded", () =>{
   
   authentication();

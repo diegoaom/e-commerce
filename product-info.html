@@ -31,7 +31,22 @@
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
         <li class="nav-item">
-          <a class="nav-link" href="my-profile.html" id="userDisplay"></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+            <ul class="navbar-nav">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="userDisplay">
+                </a>
+                <ul class="dropdown-menu dropdown-menu-dark">
+                  <li><a class="dropdown-item" href="my-profile.html">Mi perfil</a></li>
+                  <li><a class="dropdown-item" href="cart.html">Mi carrito</a></li>
+                  <li><a onclick="logOut()" class="dropdown-item" href="login.html">Cerrar sesion</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
         </li>
         </ul>
       </div>
@@ -59,9 +74,11 @@
           <option value="5">5</option>
         </select>
       </div>
-      <button type="button" class="btn btn-primary my-1">Enviar</button>
-
-    </div>
+      <button type="button" class="btn btn-primary my-1 mb-3">Enviar</button>
+      <hr>
+      <h4 class="fw-bold mt-5 mb-5">Productos relacionados</h4>
+      <div  class="related" id="relatedContainer">
+      </div>
   </main>
   <footer class="text-muted">
     <div class="container">

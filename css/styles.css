@@ -258,3 +258,23 @@ a.custom-card:hover {
 .textarea-width {
   width: 50%;
 }
+
+.related {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.img-related {
+  max-width: 300px;
+  margin: 0.5rem 0;
+}
+
+.filters {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}

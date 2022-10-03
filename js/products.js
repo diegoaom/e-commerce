@@ -17,9 +17,6 @@ function showProducts(){
 
     for(let element of currentProductsArray){ 
 
-        if (((minCostProduct == undefined) || (minCostProduct != undefined && parseInt(element.cost) >= minCostProduct)) &&
-            ((maxCostProduct == undefined) || (maxCostProduct != undefined && parseInt(element.cost) <= maxCostProduct))){
-
             htmlContentToAppend += `
             <div onclick="setProductID(${element.id})" class="list-group-item list-group-item-action custom-card cursor-active" >
                 <div class="row">
@@ -39,7 +36,6 @@ function showProducts(){
                 </div>
             </div>
             `
-        }
 
         document.querySelector("#container").innerHTML = htmlContentToAppend; 
     }

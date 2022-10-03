@@ -1,5 +1,6 @@
 const SELECTED_PRODUCT = `${PRODUCT_INFO_URL}${localStorage.getItem("productID")}${EXT_TYPE}`;
 const SELECTED_PRODUCT_COMMENTS = `${PRODUCT_INFO_COMMENTS_URL}${localStorage.getItem("productID")}${EXT_TYPE}`;
+const relatedProductSection = document.querySelector("#relatedContainer");
 let productInfo = undefined;
 let relatedProductArray = [];
 let productComments = undefined;
@@ -80,12 +81,29 @@ const showStars = (score) => {
 
 }
 
+function createRelated(arr) {
+    let relatedToAppend = "";
+    for (related of arr.relatedProducts) {
+        relatedToAppend += `<div onclick="setProductID(${related.id})" class="cursor-active">
+        <img src="${related.image}" alt="related image" class="img-thumbnail img-related">
+        <p class="text-center">${related.name}</p>
+        </div>`;
+    }
+    relatedProductSection.innerHTML = relatedToAppend;
+}
+
+function setProductID(id) {
+    localStorage.setItem("productID", id);
+    window.location = "product-info.html"
+}
+
 document.addEventListener("DOMContentLoaded", ()=> {
     getJSONData(SELECTED_PRODUCT).then((resultObj) =>{
         if (resultObj.status === "ok"){
             productInfo = resultObj.data;
             relatedProductArray = resultObj.data.relatedProducts;
             createProductCard(productInfo);
+            createRelated(productInfo);
         }
     });
     getJSONData(SELECTED_PRODUCT_COMMENTS).then((resultObj) =>{

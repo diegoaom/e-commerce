@@ -92,11 +92,6 @@ function createRelated(arr) {
     relatedProductSection.innerHTML = relatedToAppend;
 }
 
-function setProductID(id) {
-    localStorage.setItem("productID", id);
-    window.location = "product-info.html"
-}
-
 document.addEventListener("DOMContentLoaded", ()=> {
     getJSONData(SELECTED_PRODUCT).then((resultObj) =>{
         if (resultObj.status === "ok"){

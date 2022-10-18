@@ -278,3 +278,42 @@ a.custom-card:hover {
   justify-content: space-between;
   align-items: center;
 }
+
+.product-thumbnail {
+  width: 75px;
+}
+
+.input-cantidad {
+  width: 75px;
+}
+
+.input-direccion {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 2rem;
+  gap: 1.5rem;
+}
+
+.input-direcion-calle{
+  width: 35%;
+}
+
+.input-direcion-numero{
+  width: 20%;
+}
+
+.navbar-button {
+  margin: 0.4rem 0;
+}
+
+@media (max-width: 992px) {
+  .navbar-container {
+    display: flex;
+    flex-direction: row-reverse;
+    max-width: none;
+  }
+}
+ 
+.form-label {
+  margin-bottom: 0;
+}

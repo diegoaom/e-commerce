@@ -7,11 +7,6 @@ let currentSortCriteriaProducts = undefined;
 let minCostProduct = undefined;
 let maxCostProduct = undefined;
 
-function setProductID(id) {
-    localStorage.setItem("productID", id);
-    window.location = "product-info.html"
-}
-
 function showProducts(){
     let htmlContentToAppend = "";
 

@@ -60,6 +60,11 @@ function logOut() {
   }
 }
 
+function setProductID(id) {
+  localStorage.setItem("productID", id);
+  window.location = "product-info.html"
+}
+
 document.addEventListener("DOMContentLoaded", () =>{
   
   authentication();

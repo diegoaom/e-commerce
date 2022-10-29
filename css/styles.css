@@ -317,3 +317,9 @@ a.custom-card:hover {
 .form-label {
   margin-bottom: 0;
 }
+
+.trash-icon {
+  border-color: #dc2f43;
+  color: #dc2f43;
+  padding: 5px;
+}

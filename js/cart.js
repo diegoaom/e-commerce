@@ -15,6 +15,7 @@ const showCart = (arr)=>{
         oninput="showPrice(${elements.unitCost},${elements.id})">
         </td>
         <td class="fw-bold">${elements.currency} $<span id="subtotalID${elements.id}">${elements.unitCost * elements.count}</span></td>
+        <td><button class="fa fa-trash trash-icon" aria-hidden="true"></button></td>
         </tr>`
     }
     tablaCarrito.innerHTML = htmlToAppend;

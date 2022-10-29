@@ -12,7 +12,7 @@ const createProductCard = (element)=> {
             <div class="col">
                 <div class="d-flex w-100 justify-content-between">
                     <div class="mb-1">
-                        <h4 class="fw-bold">${element.name}</h4>
+                        <h4 class="fw-bold mt-2">${element.name}</h4>
                         <br>
                         <p class="fw-bold">Precio</p>
                         <p>${element.currency} ${element.cost}</p>
@@ -23,6 +23,9 @@ const createProductCard = (element)=> {
                         <p class="fw-bold">Cantidad de vendidos</p> 
                         <p>${element.soldCount}</p>
                         <p class="fw-bold">Imagenes ilustrativas</p>
+                    </div>
+                    <div>
+                        <button type="button" class="btn btn-success" id="comprarBtn">Comprar</button>
                     </div>
                 </div>
                 <div class="container product-imgs-container" id="img-container">

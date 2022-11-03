@@ -25,7 +25,7 @@ const createProductCard = (element)=> {
                         <p class="fw-bold">Imagenes ilustrativas</p>
                     </div>
                     <div>
-                        <button type="button" class="btn btn-success" id="comprarBtn">Comprar</button>
+                        <button type="button" class="btn btn-success" id="comprarBtn" onclick="buyProduct()">Comprar</button>
                     </div>
                 </div>
                 <div class="container product-imgs-container" id="img-container">
@@ -42,14 +42,14 @@ const createProductCard = (element)=> {
 
 const createIMGS = (array) => {
     
-    for(imagenes of array.images){
+    for(let imagenes of array.images){
     document.querySelector("#img-container").innerHTML += `<img class="product-imgs" src="${imagenes}" alt="imagen de producto">`
     }
 }
 
 const showComments = (array) => {
 
-    for (comentario of array) {
+    for (let comentario of array) {
         document.querySelector("#comment-section").innerHTML += `
         <div class="list-group-item list-group-item-action custom-card">
             <div class="row">
@@ -86,13 +86,40 @@ const showStars = (score) => {
 
 function createRelated(arr) {
     let relatedToAppend = "";
-    for (related of arr.relatedProducts) {
+    for (let related of arr.relatedProducts) {
         relatedToAppend += `<div onclick="setProductID(${related.id})" class="cursor-active">
         <img src="${related.image}" alt="related image" class="img-thumbnail img-related">
         <p class="text-center">${related.name}</p>
         </div>`;
     }
     relatedProductSection.innerHTML = relatedToAppend;
+}
+
+const createBoughtProductInfo = ()=>{
+    productBought = {
+        id: productInfo.id,
+        name: productInfo.name,
+        count: 1,
+        unitCost: productInfo.cost,
+        currency: productInfo.currency,
+        image: productInfo.images[0]
+    }
+}
+
+const pushProductToCart = ()=> {
+    checkLocalStorageCart();
+    if(!cartArray.some(e => e.id === productBought.id)){
+        cartArray.push(productBought);
+        updateLocalStorageCart();
+        // alerta
+    } else {
+    // alerta
+    }
+}
+
+const buyProduct = ()=>{
+    createBoughtProductInfo();
+    pushProductToCart();
 }
 
 document.addEventListener("DOMContentLoaded", ()=> {
@@ -111,3 +138,4 @@ document.addEventListener("DOMContentLoaded", ()=> {
         }
     });
 });
+

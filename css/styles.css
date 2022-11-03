@@ -272,13 +272,6 @@ a.custom-card:hover {
   margin: 0.5rem 0;
 }
 
-.filters {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-}
-
 .product-thumbnail {
   width: 75px;
 }
@@ -322,4 +315,18 @@ a.custom-card:hover {
   border-color: #dc2f43;
   color: #dc2f43;
   padding: 5px;
+}
+
+.modal-inputs::-webkit-outer-spin-button,
+.modal-inputs::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.modal-inputs{
+    -moz-appearance: textfield;
+}
+
+#payment-method-feedback {
+  margin-left: 0.5rem;
 }

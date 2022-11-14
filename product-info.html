@@ -13,7 +13,7 @@
 </head>
 
 <body>
-  <nav class="navbar-expand-lg navbar-dark bg-dark p-1">
+  <nav class="navbar-expand-lg navbar-dark">
     <div class="container navbar-container">
       <div class="navbar-button">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -26,20 +26,24 @@
           <li class="nav-item">
             <a class="nav-link active" href="index.html">Inicio</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="categories.html">Categorías</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="sell.html">Vender</a>
-          </li>
-          <div class="dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="userDisplay">
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="my-profile.html">Mi perfil</a></li>
-              <li><a class="dropdown-item" href="cart.html">Mi carrito</a></li>
-              <li><a onclick="logOut()" class="dropdown-item" href="login.html">Cerrar sesion</a></li>
-            </ul>
+          <div class="d-flex nb-flex">
+            <li class="nav-item">
+              <a class="nav-link" href="categories.html">Categorías</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="sell.html">Vender</a>
+            </li>
+            <div class="dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="userDisplay"></a>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li><a class="dropdown-item" href="my-profile.html">Mi perfil</a></li>
+                <li><a class="dropdown-item" href="cart.html">Mi carrito</a></li>
+                <li><a onclick="logOut()" class="dropdown-item" href="login.html">Cerrar sesion</a></li>
+              </ul>
+            </div>
+            <li class="nav-item">
+              <a class="nav-link shop-cart" href="cart.html"><i class="fa fa-shopping-cart" id="cart-count"></i></a>
+            </li>
           </div>
         </ul>
       </div>
@@ -52,14 +56,15 @@
       <div id="comment-section"></div>
     </div>
     <div class="container">
-      <h4 class="fw-bold mt-5">Comentar</h4>
+      <form class="send-commentary pb-5" id="commentary-send" novalidate>
+        <h4 class="fw-bold mt-5">Comentar</h4>
       <p class="fw-bold">Tu opinion:</p>
       <div class="input-group  textarea-width">
-        <textarea class="form-control"></textarea>
+        <textarea class="form-control" id="comment" required></textarea>
       </div>
       <p class="fw-bold my-3">Tu puntuacion:</p>
       <div class="input-group mb-3">
-        <select class="custom-select" id="inputGroupSelect01">
+        <select class="custom-select" id="inputGroupSelect01" required>
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
@@ -67,8 +72,8 @@
           <option value="5">5</option>
         </select>
       </div>
-      <button type="button" class="btn btn-primary my-1 mb-3">Enviar</button>
-      <hr>
+      <button type="submit" class="btn btn-primary my-1 mb-3">Enviar</button>
+      </form>
       <h4 class="fw-bold mt-5 mb-5">Productos relacionados</h4>
       <div  class="related" id="relatedContainer">
       </div>
@@ -83,6 +88,12 @@
       <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
     </div>
   </footer>
+  <div class="alert alert-success alert-dismissible fade" id="ok-buy" role="alert">
+    Has agregado este producto a tu carrito con exito!
+  </div>
+  <div class="alert alert-danger alert-dismissible fade" id="not-ok-buy" role="alert">
+    Ya tienes este producto en tu carrito
+  </div>
   <div id="spinner-wrapper">
     <div class="lds-ring">
       <div></div>

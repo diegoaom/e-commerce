@@ -8,11 +8,12 @@
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/dropzone.css" rel="stylesheet">
+  <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
 </head>
 
 <body>
-  <nav class="navbar-expand-lg navbar-dark bg-dark p-1">
+  <nav class="navbar-expand-lg navbar-dark">
     <div class="container navbar-container">
       <div class="navbar-button">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -25,20 +26,24 @@
           <li class="nav-item">
             <a class="nav-link active" href="index.html">Inicio</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="categories.html">Categorías</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="sell.html">Vender</a>
-          </li>
-          <div class="dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="userDisplay">
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="my-profile.html">Mi perfil</a></li>
-              <li><a class="dropdown-item" href="cart.html">Mi carrito</a></li>
-              <li><a onclick="logOut()" class="dropdown-item" href="login.html">Cerrar sesion</a></li>
-            </ul>
+          <div class="d-flex nb-flex">
+            <li class="nav-item">
+              <a class="nav-link" href="categories.html">Categorías</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="sell.html">Vender</a>
+            </li>
+            <div class="dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="userDisplay"></a>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li><a class="dropdown-item" href="my-profile.html">Mi perfil</a></li>
+                <li><a class="dropdown-item" href="cart.html">Mi carrito</a></li>
+                <li><a onclick="logOut()" class="dropdown-item" href="login.html">Cerrar sesion</a></li>
+              </ul>
+            </div>
+            <li class="nav-item">
+              <a class="nav-link shop-cart" href="cart.html"><i class="fa fa-shopping-cart" id="cart-count"></i></a>
+            </li>
           </div>
         </ul>
       </div>
@@ -151,21 +156,21 @@
           <hr class="mb-4">
           <h4 class="mb-3">Costos</h4>
           <ul class="list-group mb-3">
-            <li class="list-group-item d-flex justify-content-between lh-condensed">
+            <li class="list-group-item d-flex justify-content-between lh-condensed text-white cart-prices">
               <div>
                 <h6 class="my-0">Precio</h6>
                 <small class="text-muted">Unitario del producto</small>
               </div>
               <span class="text-muted" id="productCostText">-</span>
             </li>
-            <li class="list-group-item d-flex justify-content-between lh-condensed">
+            <li class="list-group-item d-flex justify-content-between lh-condensed text-white cart-prices">
               <div>
                 <h6 class="my-0">Porcentaje</h6>
                 <small class="text-muted">Según el tipo de publicación</small>
               </div>
               <span class="text-muted" id="comissionText">-</span>
             </li>
-            <li class="list-group-item d-flex justify-content-between">
+            <li class="list-group-item d-flex justify-content-between text-white cart-prices">
               <span>Total ($)</span>
               <strong id="totalCostText">-</strong>
             </li>

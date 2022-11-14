@@ -7,6 +7,7 @@
   <title>eMercado - Todo lo que busques está aquí</title>
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
   <style>
     .bd-placeholder-img {
@@ -27,33 +28,38 @@
 </head>
 
 <body>
-  <nav class="navbar-expand-lg navbar-dark bg-dark p-1">
+  <nav class="navbar-expand-lg navbar-dark">
     <div class="container navbar-container">
       <div class="navbar-button">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
       </div>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav w-100 justify-content-between">
           <li class="nav-item">
             <a class="nav-link active" href="index.html">Inicio</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="categories.html">Categorías</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="sell.html">Vender</a>
-          </li>
-          <div class="dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="userDisplay">
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="my-profile.html">Mi perfil</a></li>
-              <li><a class="dropdown-item" href="cart.html">Mi carrito</a></li>
-              <li><a onclick="logOut()" class="dropdown-item" href="login.html">Cerrar sesion</a></li>
-            </ul>
+          <div class="d-flex nb-flex">
+            <li class="nav-item">
+              <a class="nav-link" href="categories.html">Categorías</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="sell.html">Vender</a>
+            </li>
+            <div class="dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+                id="userDisplay"></a>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li><a class="dropdown-item" href="my-profile.html">Mi perfil</a></li>
+                <li><a class="dropdown-item" href="cart.html">Mi carrito</a></li>
+                <li><a onclick="logOut()" class="dropdown-item" href="login.html">Cerrar sesion</a></li>
+              </ul>
+            </div>
+            <li class="nav-item">
+              <a class="nav-link shop-cart" href="cart.html"><i class="fa fa-shopping-cart" id="cart-count"></i></a>
+            </li>
           </div>
         </ul>
       </div>
@@ -61,9 +67,72 @@
   </nav>
   <main>
     <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
+      <div class="head d-flex justify-content-between">
+        <div class="col profile-header">
+          <h1 class="mt-5">Perfil</h1>
+        </div>
+        <div class="col profile-img-container">
+          <img class="img-thumbnail profile-img" id="prof-img" src="./img/img_perfil.png" alt="">
+        </div>
       </div>
+      <form id="profile" novalidate>
+        <div class="row profile-form">
+          <div class="col-6">
+            <div>
+              <label for="nombreInput" class="form-label">Primer nombre*</label>
+              <input type="text" class="form-control" id="nombreInput" required>
+              <div class="invalid-feedback">
+                Ingresa un nombre.
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div>
+              <label for="segundoNombreInput" class="form-label">Segundo nombre</label>
+              <input type="text" class="form-control" id="segundoNombreInput">
+            </div>
+          </div>
+          <div class="col-6">
+            <div>
+              <label for="apellidoInput" class="form-label">Primer apellido*</label>
+              <input type="text" class="form-control" id="apellidoInput" required>
+              <div class="invalid-feedback">
+                Ingresa un apellido.
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div>
+              <label for="segundoApellidoInput" class="form-label">Segundo apellido</label>
+              <input type="text" class="form-control" id="segundoApellidoInput">
+            </div>
+          </div>
+          <div class="col-6">
+            <div>
+              <label for="emailInput" class="form-label">E-mail*</label>
+              <input type="email" class="form-control" id="emailInput" required>
+              <div class="invalid-feedback">
+                Ingresa un e-mail.
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div>
+              <label for="telefonoInput" class="form-label">Telefono de contacto</label>
+              <input type="number" class="form-control" id="telefonoInput">
+            </div>
+          </div>
+          <div class="col-6 offset-6">
+            <label for="profileIMG" class="form-label">Imagen de perfil</label>
+            <div class="input-group mb-3">
+              <input type="file" class="form-control" id="profileIMG">
+            </div>
+          </div>
+        </div>
+        <div class="col-3">
+          <button type="submit" class="btn btn-primary mt-5">Guardar cambios</button>
+        </div>
+      </form>
     </div>
   </main>
   <footer class="text-muted">
@@ -76,6 +145,14 @@
       <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
     </div>
   </footer>
+  <div id="spinner-wrapper">
+    <div class="lds-ring">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/my-profile.js"></script>

@@ -6,6 +6,8 @@ const PRODUCT_INFO_COMMENTS_URL = "https://japceibal.github.io/emercado-api/prod
 const CART_INFO_URL = "https://japceibal.github.io/emercado-api/user_cart/";
 const CART_BUY_URL = "https://japceibal.github.io/emercado-api/cart/buy.json";
 const EXT_TYPE = ".json";
+const CART_URL = "https://japceibal.github.io/emercado-api/user_cart/25801.json"
+const CART_COUNT = document.querySelector("#cart-count");
 let cartArray = [];
 
 let showSpinner = function(){
@@ -64,13 +66,6 @@ function setProductID(id) {
   window.location = "product-info.html"
 }
 
-document.addEventListener("DOMContentLoaded", () =>{
-  
-  authentication();
-  displayUser();
-
-});
-
 const checkLocalStorageCart = ()=> {
   if(localStorage.getItem("cart")){
       cartArray = JSON.parse(localStorage.getItem("cart"));
@@ -80,3 +75,36 @@ const checkLocalStorageCart = ()=> {
 const updateLocalStorageCart = ()=> {
   localStorage.setItem("cart", JSON.stringify(cartArray));
 }
+
+const fetchPeugeot = () => {
+
+  getJSONData(CART_URL).then(function (resultObj) {
+      if (resultObj.status === "ok") {
+          let PeugeotFetch = resultObj.data.articles;
+          cartArray.unshift(PeugeotFetch[0]);
+          updateLocalStorageCart();
+          showCartCount();
+      }
+  });
+}
+
+const checkPeugeot = () => {
+  checkLocalStorageCart();
+  if (!cartArray.some(e => e.id === 50924)) {
+      fetchPeugeot();
+  }
+}
+
+const showCartCount = () => {
+  checkLocalStorageCart();
+  CART_COUNT.innerText = ` ${cartArray.length}`;
+
+}
+
+document.addEventListener("DOMContentLoaded", () =>{
+  authentication();
+  displayUser();
+  showCartCount();
+  checkPeugeot();
+  updateLocalStorageCart();
+});

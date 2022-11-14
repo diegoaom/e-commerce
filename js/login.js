@@ -2,9 +2,9 @@ const alertEmpty = document.querySelector("#alertEmpty");
 const logBtn = document.querySelector("#logBtn");
 const googleBtn = document.querySelector("#googleBtn");
 
-function logIn () {
+function logIn() {
 
-    if (user.value && password.value){
+    if (user.value && password.value) {
         localStorage.setItem("email", user.value);
         window.location.href = "index.html";
     } else {
@@ -22,21 +22,22 @@ function handleCredentialResponse(response) {
     window.location.href = "index.html";
 }
 
-function parseJwt (token) {    
-    let base64Url = token.split('.')[1];    
-    let base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');    
-    let jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {     
-           return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);    }).join(''));
+function parseJwt(token) {
+    let base64Url = token.split('.')[1];
+    let base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+    let jsonPayload = decodeURIComponent(atob(base64).split('').map(function (c) {
+        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+    }).join(''));
     return JSON.parse(jsonPayload);
 };
 
-function googleLogIn () {
-        google.accounts.id.initialize({
+function googleLogIn() {
+    google.accounts.id.initialize({
         client_id: '1090179886368-mr1njuelvdg7rd2r1antoi7iuruh27bi.apps.googleusercontent.com',
         callback: handleCredentialResponse
-      });
-      google.accounts.id.prompt();
-      
+    });
+    google.accounts.id.prompt();
+
 }
 
 

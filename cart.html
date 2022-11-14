@@ -12,7 +12,7 @@
 </head>
 
 <body>
-  <nav class="navbar-expand-lg navbar-dark bg-dark p-1">
+  <nav class="navbar-expand-lg navbar-dark">
     <div class="container navbar-container">
       <div class="navbar-button">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -25,20 +25,24 @@
           <li class="nav-item">
             <a class="nav-link active" href="index.html">Inicio</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="categories.html">Categorías</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="sell.html">Vender</a>
-          </li>
-          <div class="dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="userDisplay">
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="my-profile.html">Mi perfil</a></li>
-              <li><a class="dropdown-item" href="cart.html">Mi carrito</a></li>
-              <li><a onclick="logOut()" class="dropdown-item" href="login.html">Cerrar sesion</a></li>
-            </ul>
+          <div class="d-flex nb-flex">
+            <li class="nav-item">
+              <a class="nav-link" href="categories.html">Categorías</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="sell.html">Vender</a>
+            </li>
+            <div class="dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="userDisplay"></a>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li><a class="dropdown-item" href="my-profile.html">Mi perfil</a></li>
+                <li><a class="dropdown-item" href="cart.html">Mi carrito</a></li>
+                <li><a onclick="logOut()" class="dropdown-item" href="login.html">Cerrar sesion</a></li>
+              </ul>
+            </div>
+            <li class="nav-item">
+              <a class="nav-link shop-cart" href="cart.html"><i class="fa fa-shopping-cart" id="cart-count"></i></a>
+            </li>
           </div>
         </ul>
       </div>
@@ -48,7 +52,7 @@
     <div class="container">
       <h1 class="fs-3 text-center mt-5 mb-3">Carrito de compras</h1>
       <h4 class="fs-4 mt-5 mb-4">Artículos a comprar</h4>
-      <table class="table">
+      <table class="table text-white">
         <tr>
           <thead>
             <th scope="col"></th>
@@ -102,21 +106,21 @@
           </div>
         <h4 class="fs-4 mt-5 mb-3">Costos</h4>
         <ul class="list-group">
-          <li class="list-group-item d-flex justify-content-between align-items-start">
+          <li class="list-group-item d-flex justify-content-between align-items-start text-white cart-prices">
             <div class="me-auto">
               <div class="fw-bold">Subtotal</div>
               <p class="text-muted">Costo unitario del producto por cantidad</p>
             </div>
             <p>USD <span id="subtotalSpan"></span></p>
           </li>
-          <li class="list-group-item d-flex justify-content-between align-items-start">
+          <li class="list-group-item d-flex justify-content-between align-items-start text-white cart-prices">
             <div class="me-auto">
               <div class="fw-bold">Costo de envio</div>
               <p class="text-muted">Segun el tipo de envio</p>
             </div>
             <p>USD <span id="shippingCostSpan"></span></p>
           </li>
-          <li class="list-group-item d-flex justify-content-between align-items-start">
+          <li class="list-group-item d-flex justify-content-between align-items-start text-white cart-prices">
             <div class="me-auto">
               <div class="fw-bold">Total($)</div>
             </div>

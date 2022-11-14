@@ -13,7 +13,7 @@
 </head>
 
 <body>
-  <nav class="navbar-expand-lg navbar-dark bg-dark p-1">
+  <nav class="navbar-expand-lg navbar-dark">
     <div class="container navbar-container">
       <div class="navbar-button">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -26,20 +26,24 @@
           <li class="nav-item">
             <a class="nav-link active" href="index.html">Inicio</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="categories.html">Categorías</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="sell.html">Vender</a>
-          </li>
-          <div class="dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="userDisplay">
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="my-profile.html">Mi perfil</a></li>
-              <li><a class="dropdown-item" href="cart.html">Mi carrito</a></li>
-              <li><a onclick="logOut()" class="dropdown-item" href="login.html">Cerrar sesion</a></li>
-            </ul>
+          <div class="d-flex nb-flex">
+            <li class="nav-item">
+              <a class="nav-link" href="categories.html">Categorías</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="sell.html">Vender</a>
+            </li>
+            <div class="dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="userDisplay"></a>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li><a class="dropdown-item" href="my-profile.html">Mi perfil</a></li>
+                <li><a class="dropdown-item" href="cart.html">Mi carrito</a></li>
+                <li><a onclick="logOut()" class="dropdown-item" href="login.html">Cerrar sesion</a></li>
+              </ul>
+            </div>
+            <li class="nav-item">
+              <a class="nav-link shop-cart" href="cart.html"><i class="fa fa-shopping-cart" id="cart-count"></i></a>
+            </li>
           </div>
         </ul>
       </div>

@@ -1,5 +1,4 @@
 const tablaCarrito = document.querySelector("#cartTable");
-const CART_URL = "https://japceibal.github.io/emercado-api/user_cart/25801.json"
 const subtotal = document.querySelector("#subtotalSpan");
 const shipping = document.querySelector("#shippingCostSpan");
 const total = document.querySelector("#totalSpan");
@@ -29,7 +28,7 @@ const showCart = (arr) => {
          onchange="this.value = Math.floor(Math.max(this.value,1))" step="1">
         </td>
         <td class="fw-bold">${elements.currency} <span id="subtotalID${elements.id}">${elements.unitCost * elements.count}</span></td>
-        <td><button class="fa fa-trash trash-icon" aria-hidden="true" id="delete${elements.id}" onclick="deleteItem(${elements.id})")></button></td>
+        <td><button class="fas fa-trash-alt" aria-hidden="true" id="delete${elements.id}" onclick="deleteItem(${elements.id})")></button></td>
         </tr>`
     }
     tablaCarrito.innerHTML = htmlToAppend;
@@ -44,29 +43,11 @@ const showPrice = (productCartID) => {
     subtotalAppendPlace.innerHTML = price;
 }
 
-const fetchCart = () => {
-
-    getJSONData(CART_URL).then(function (resultObj) {
-        if (resultObj.status === "ok") {
-            let PeugeotFetch = resultObj.data.articles;
-            checkPeugeot(PeugeotFetch);
-            showCart(cartArray);
-        }
-    });
-}
-
-const checkPeugeot = (PFetch) => {
-    checkLocalStorageCart();
-    if (!cartArray.some(e => e.id === PFetch[0].id)) {
-        cartArray.unshift(PFetch[0]);
-        updateLocalStorageCart;
-    }
-}
-
 const deleteItem = (id) => {
     cartArray = cartArray.filter(itemToRemove => itemToRemove.id !== id);
     updateLocalStorageCart();
     showCart(cartArray);
+    showCartCount();
 }
 
 const subtotalCalc = () => {
@@ -159,7 +140,8 @@ const modalFeedback = () => {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    fetchCart();
+    checkLocalStorageCart();
+    showCart(cartArray);
 });
 
 TransferBtn.addEventListener("click", disableInputs);

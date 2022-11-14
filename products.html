@@ -13,7 +13,7 @@
 </head>
 
 <body>
-  <nav class="navbar-expand-lg navbar-dark bg-dark p-1">
+  <nav class="navbar-expand-lg navbar-dark">
     <div class="container navbar-container">
       <div class="navbar-button">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -26,21 +26,25 @@
           <li class="nav-item">
             <a class="nav-link active" href="index.html">Inicio</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="categories.html">Categorías</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="sell.html">Vender</a>
-          </li>
-          <div class="dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"
-              id="userDisplay">
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="my-profile.html">Mi perfil</a></li>
-              <li><a class="dropdown-item" href="cart.html">Mi carrito</a></li>
-              <li><a onclick="logOut()" class="dropdown-item" href="login.html">Cerrar sesion</a></li>
-            </ul>
+          <div class="d-flex nb-flex">
+            <li class="nav-item">
+              <a class="nav-link" href="categories.html">Categorías</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="sell.html">Vender</a>
+            </li>
+            <div class="dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+                id="userDisplay"></a>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li><a class="dropdown-item" href="my-profile.html">Mi perfil</a></li>
+                <li><a class="dropdown-item" href="cart.html">Mi carrito</a></li>
+                <li><a onclick="logOut()" class="dropdown-item" href="login.html">Cerrar sesion</a></li>
+              </ul>
+            </div>
+            <li class="nav-item">
+              <a class="nav-link shop-cart" href="cart.html"><i class="fa fa-shopping-cart" id="cart-count"></i></a>
+            </li>
           </div>
         </ul>
       </div>
@@ -63,8 +67,14 @@
         </div>
       </div>
     </div>
-    <div class="col-lg-6 offset-lg-6 col-md-12 mb-1 container">
-      <div class="row container p-0 m-0">
+    <div class="col p-0 container">
+      <div class="row container p-0 m-0 product-controls">
+        <div class="col-3 mb-3">
+          <div class="form-floating">
+            <input type="search" class="form-control" id="product-search" placeholder="buscador">
+            <label for="buscador">Buscador</label>
+          </div>
+        </div>
         <div class="col">
           <p class="font-weight-normal text-end my-2">Precio</p>
         </div>
@@ -74,7 +84,7 @@
         <div class="col">
           <input class="form-control" type="number" placeholder="máx." id="rangeFilterCostMax">
         </div>
-        <div class="col-3 p-0">
+        <div class="col-1 p-0 filter-clear">
           <div class="btn-group" role="group">
             <button class="btn btn-light btn-block" id="rangeFilterCost">Filtrar</button>
             <button class="btn btn-link btn-sm" id="clearFilter">Limpiar</button>
@@ -82,7 +92,7 @@
         </div>
       </div>
     </div>
-    <div class="container custom-container" id="container">
+    <div class="container" id="container">
 
     </div>
   </main>

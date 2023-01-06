@@ -1,6 +1,8 @@
 const alertEmpty = document.querySelector("#alertEmpty");
 const logBtn = document.querySelector("#logBtn");
 const googleBtn = document.querySelector("#googleBtn");
+const user = document.querySelector("#account-email");
+const password = document.querySelector("#account-password");
 
 function logIn() {
 
@@ -39,8 +41,6 @@ function googleLogIn() {
     google.accounts.id.prompt();
 
 }
-
-
 
 logBtn.addEventListener("click", () => {
     logIn();
